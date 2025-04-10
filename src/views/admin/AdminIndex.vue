@@ -158,16 +158,9 @@
                 </el-tag>
               </template>
             </el-table-column>
-            <el-table-column label="操作" width="200">
+            <el-table-column prop="caozuo" label="操作" width="180">
               <template slot-scope="scope">
-                <el-button 
-                  size="mini" 
-                  type="primary" 
-                  v-if="scope.row.status === 'PENDING'"
-                  @click="showAssignAppointmentDialog(scope.row)"
-                >
-                  分配
-                </el-button>
+                <el-button   slot="append" @click="handleAppointmentEdit(scope.row)">指派任务</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -429,9 +422,9 @@ editDialogVisible: false,
 
       // 预约单管理数据
       appointments: [
-        { id: 1, name: '张三', phone: '13800138000', address: '北京市海淀区', service: '洗车', status: '已完成' },
-        { id: 2, name: '李四', phone: '13900139000', address: '上海市浦东新区', service: '保养', status: '进行中' },
-        { id: 3, name: '王五', phone: '13700137000', address: '广州市天河区', service: '维修', status: '未开始' }
+        { id: 1, nickname: '张三', phone: '13800138000', appointmentTime: '2025-9.2 10:00', serviceTypeDesc: '洗车', status: '已完成' },
+        { id: 2, nickname: '李四', phone: '13900139000', appointmentTime: '2025-9.2 11:00', serviceTypeDesc: '保养', status: '进行中' },
+        { id: 3, nickname: '王五', phone: '13700137000', appointmentTime: '2025-9.2 12:00', serviceTypeDesc: '维修', status: '未开始' }
       ],
       searchAppointmentKeyword: '',
       appointmentCurrentPage: 1,
